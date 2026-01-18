@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Odd / Even Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1 class="title">홀짝 게임</h1>
+    <p class="subtitle">숫자가 홀일까? 짝일까?</p>
+
+    <div class="buttons">
+      <button class="btn odd" onclick="startOddEven('odd')">홀</button>
+      <button class="btn even" onclick="startOddEven('even')">짝</button>
+    </div>
+
+    <div id="card" class="card hidden">
+      <div id="number" class="number">?</div>
+      <div id="result" class="result"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
