@@ -3,23 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Odd / Even Game</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Mini Casino</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <div class="app">
-    <h1 class="title">홀짝 게임</h1>
-    <p class="subtitle">숫자가 홀일까? 짝일까?</p>
 
-    <div class="buttons">
-      <button class="btn odd" onclick="startOddEven('odd')">홀</button>
-      <button class="btn even" onclick="startOddEven('even')">짝</button>
-    </div>
+    <!-- 메인 화면 -->
+    <section id="mainScreen" class="screen">
+      <h1 class="title">Mini Casino</h1>
 
-    <div id="card" class="card hidden">
-      <div id="number" class="number">?</div>
+      <input id="nickname" type="text" placeholder="닉네임" />
+      <input id="moneyInput" type="number" placeholder="보유 금액" />
+
+      <div class="buttons">
+        <button class="btn odd" onclick="selectGame('oddEven')">홀짝</button>
+        <button class="btn even" onclick="selectGame('ladder')">사다리</button>
+      </div>
+    </section>
+
+    <!-- 게임 화면 -->
+    <section id="gameScreen" class="screen hidden">
+      <h2 id="gameTitle"></h2>
+      <p class="info">
+        <span id="playerName"></span> |
+        💰 <span id="currentMoney"></span>
+      </p>
+
+      <input id="betAmount" type="number" placeholder="배팅 금액" />
+
+      <!-- 홀짝 -->
+      <div id="oddEvenArea" class="hidden">
+        <div class="buttons">
+          <button class="btn odd" onclick="playOddEven('odd')">홀</button>
+          <button class="btn even" onclick="playOddEven('even')">짝</button>
+        </div>
+      </div>
+
+      <!-- 사다리 -->
+      <div id="ladderArea" class="hidden">
+        <button class="btn" onclick="playLadder()">사다리 타기</button>
+        <p class="small">
+          1등 3배 / 2등 2배 / 3등 0배 / 4등 -1배 / 5등 -2배
+        </p>
+      </div>
+
       <div id="result" class="result"></div>
-    </div>
+
+      <button class="btn back" onclick="goMain()">메인으로</button>
+    </section>
+
   </div>
 
   <script src="script.js"></script>
